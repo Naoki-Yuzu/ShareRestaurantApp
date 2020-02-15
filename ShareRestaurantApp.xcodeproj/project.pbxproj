@@ -16,6 +16,9 @@
 		B053908423F5174E00AB6BAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B053908223F5174E00AB6BAE /* LaunchScreen.storyboard */; };
 		B053908C23F5184600AB6BAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B053908B23F5184600AB6BAE /* GoogleService-Info.plist */; };
 		B053908E23F5208500AB6BAE /* AccessTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = B053908D23F5208500AB6BAE /* AccessTokens.swift */; };
+		B053909023F52F0000AB6BAE /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B053908F23F52F0000AB6BAE /* SignupView.swift */; };
+		B0BB2BA023F77B4100C3CD12 /* OriginalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BB2B9F23F77B4100C3CD12 /* OriginalTextField.swift */; };
+		B0E9BC3523F7DA3B005BFA9C /* OriginalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E9BC3423F7DA3B005BFA9C /* OriginalLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		B053908523F5174E00AB6BAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B053908B23F5184600AB6BAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B053908D23F5208500AB6BAE /* AccessTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokens.swift; sourceTree = "<group>"; };
+		B053908F23F52F0000AB6BAE /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		B0BB2B9F23F77B4100C3CD12 /* OriginalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalTextField.swift; sourceTree = "<group>"; };
+		B0E9BC3423F7DA3B005BFA9C /* OriginalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalLabel.swift; sourceTree = "<group>"; };
 		D4C609FBA3FF06F3003BD026 /* Pods_ShareRestaurantApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareRestaurantApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,17 +90,44 @@
 		B053907623F5174900AB6BAE /* ShareRestaurantApp */ = {
 			isa = PBXGroup;
 			children = (
+				B053909123F52F0600AB6BAE /* Model */,
+				B053909323F52F2600AB6BAE /* Controller */,
+				B053909223F52F1F00AB6BAE /* View */,
 				B053907723F5174900AB6BAE /* AppDelegate.swift */,
 				B053907923F5174900AB6BAE /* SceneDelegate.swift */,
 				B053907B23F5174900AB6BAE /* ViewController.swift */,
+				B053908F23F52F0000AB6BAE /* SignupView.swift */,
+				B0BB2B9F23F77B4100C3CD12 /* OriginalTextField.swift */,
 				B053907D23F5174900AB6BAE /* Main.storyboard */,
 				B053908023F5174E00AB6BAE /* Assets.xcassets */,
 				B053908223F5174E00AB6BAE /* LaunchScreen.storyboard */,
 				B053908523F5174E00AB6BAE /* Info.plist */,
 				B053908B23F5184600AB6BAE /* GoogleService-Info.plist */,
 				B053908D23F5208500AB6BAE /* AccessTokens.swift */,
+				B0E9BC3423F7DA3B005BFA9C /* OriginalLabel.swift */,
 			);
 			path = ShareRestaurantApp;
+			sourceTree = "<group>";
+		};
+		B053909123F52F0600AB6BAE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B053909223F52F1F00AB6BAE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B053909323F52F2600AB6BAE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +250,9 @@
 				B053907823F5174900AB6BAE /* AppDelegate.swift in Sources */,
 				B053907A23F5174900AB6BAE /* SceneDelegate.swift in Sources */,
 				B053908E23F5208500AB6BAE /* AccessTokens.swift in Sources */,
+				B0BB2BA023F77B4100C3CD12 /* OriginalTextField.swift in Sources */,
+				B053909023F52F0000AB6BAE /* SignupView.swift in Sources */,
+				B0E9BC3523F7DA3B005BFA9C /* OriginalLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

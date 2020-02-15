@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
 
             window = UIWindow(frame: UIScreen.main.bounds)
+            
+//            let navigationController = UINavigationController(rootViewController: ViewController())
             window?.rootViewController = ViewController()
             window?.makeKeyAndVisible()
             
