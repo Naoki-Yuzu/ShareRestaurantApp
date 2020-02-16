@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         self.view.backgroundColor = .white
         
         self.view.addSubview(aView)
+        
     }
     
     override func viewDidLayoutSubviews() {

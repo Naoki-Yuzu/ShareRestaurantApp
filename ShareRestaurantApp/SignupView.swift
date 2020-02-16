@@ -10,52 +10,114 @@ import UIKit
 
 class SignupView: UIView {
     
+    var titleLabel: UILabel!
     var emailLabel: UILabel!
-    var passwordLabel: UILabel!
     var emailTextFeild: UITextField!
+    var passwordLabel: UILabel!
     var passwordTextField: UITextField!
     var conformPasswordTextFeild: UITextField!
+    var registerButton: UIButton!
+    var showOrHidePasswordButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.backgroundColor = .white
         
-        emailTextFeild = OriginalTextField(placeholderText: "Email", textColor: .black, keybordType: .emailAddress)
+        titleLabel = OriginalLabel(textOfLabel: "会員登録", textColor: .black, fontAndSize: UIFont.boldSystemFont(ofSize: 20))
+        titleLabel.textAlignment = .center
+        
+        emailLabel = OriginalLabel(textOfLabel: "メールアドレス", textColor: .black, fontAndSize: UIFont.boldSystemFont(ofSize: 10))
+        
+        emailTextFeild = OriginalTextField(placeholderText: "example@gmail.com", textColor: .black, keybordType: .emailAddress)
         emailTextFeild.delegate = self
         emailTextFeild.addLine(position: .LINE_POSITION_BOTTOM, color: .black, width: 1)
         
-        emailLabel = OriginalLabel(textOfLabel: "メールアドレス", textColor: .gray, fontSize: 10)
+        passwordLabel = OriginalLabel(textOfLabel: "パスワード", textColor: .black, fontAndSize: UIFont.boldSystemFont(ofSize: 10))
         
-        passwordLabel = OriginalLabel(textOfLabel: "パスワード", textColor: .gray, fontSize: 10)
-        
-        passwordTextField = OriginalTextField(placeholderText: "パスワード", textColor: .black)
+        passwordTextField = OriginalTextField(placeholderText: "Password", textColor: .black)
         passwordTextField.delegate = self
+        passwordTextField.isSecureTextEntry = true
         passwordTextField.addLine(position: .LINE_POSITION_BOTTOM, color: .black, width: 1)
 
         conformPasswordTextFeild = OriginalTextField(placeholderText: "確認", textColor: .black)
         conformPasswordTextFeild.delegate = self
+        conformPasswordTextFeild.isSecureTextEntry = true
         conformPasswordTextFeild.addLine(position: .LINE_POSITION_BOTTOM, color: .black, width: 1)
         
+        registerButton = OriginalButton(title: "登録", titleColor: .white, fontAndSize: UIFont.systemFont(ofSize: 15))
+        
+        showOrHidePasswordButton = OriginalButton(image: UIImage(named: "eye-show-2")!)
+        showOrHidePasswordButton.addTarget(self, action: #selector(showOrHidePassword), for: .touchUpInside)
+        
+        // SignupViewのsubviewとして追加
+        self.addSubview(titleLabel)
         self.addSubview(emailLabel)
         self.addSubview(emailTextFeild)
         self.addSubview(passwordLabel)
         self.addSubview(passwordTextField)
         self.addSubview(conformPasswordTextFeild)
+        self.addSubview(registerButton)
+        self.addSubview(showOrHidePasswordButton)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func updateConstraints() {
+        super.updateConstraints()
         
-        emailLabel.frame = CGRect(x: bounds.origin.x + 30, y: bounds.origin.y + 30, width: bounds.size.width - 100, height: 10)
-        emailTextFeild.frame = CGRect(x: bounds.origin.x + 30, y: emailLabel.frame.maxY + 5, width: bounds.size.width - 100, height: 30)
-        passwordLabel.frame = CGRect(x: bounds.origin.x + 30, y: emailTextFeild.frame.maxY + 30, width: bounds.size.width - 100, height: 10)
-        passwordTextField.frame = CGRect(x: bounds.origin.x + 30, y: passwordLabel.frame.maxY + 5, width: bounds.size.width - 100, height: 30)
-        conformPasswordTextFeild.frame = CGRect(x: bounds.origin.x + 30, y: passwordTextField.frame.maxY + 5, width: bounds.size.width - 100, height: 30)
+        // subviewのautoLayout設定
+        // 長すぎるので改善したい
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        emailLabel.translatesAutoresizingMaskIntoConstraints = false
+        emailTextFeild.translatesAutoresizingMaskIntoConstraints = false
+        passwordLabel.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        conformPasswordTextFeild.translatesAutoresizingMaskIntoConstraints = false
+        registerButton.translatesAutoresizingMaskIntoConstraints = false
+        showOrHidePasswordButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 15).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        titleLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5).isActive = true
+        titleLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.05).isActive = true
+        
+        emailLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
+        emailLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        emailLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.7).isActive = true
+        emailLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.02).isActive = true
+        
+        emailTextFeild.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 5).isActive = true
+        emailTextFeild.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        emailTextFeild.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.7).isActive = true
+        emailTextFeild.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.05).isActive = true
+        
+        passwordLabel.topAnchor.constraint(equalTo: emailTextFeild.bottomAnchor, constant: 20).isActive = true
+        passwordLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        passwordLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.7).isActive = true
+        passwordLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.02).isActive = true
+        
+        passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 5).isActive = true
+        passwordTextField.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        passwordTextField.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.7).isActive = true
+        passwordTextField.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.05).isActive = true
+        
+        conformPasswordTextFeild.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 5).isActive = true
+        conformPasswordTextFeild.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        conformPasswordTextFeild.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.7).isActive = true
+        conformPasswordTextFeild.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.05).isActive = true
+        
+        registerButton.topAnchor.constraint(equalTo: conformPasswordTextFeild.bottomAnchor, constant: 50).isActive = true
+        registerButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -50).isActive = true
+        registerButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.3).isActive = true
+        registerButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.05).isActive = true
+        
+        showOrHidePasswordButton.centerYAnchor.constraint(equalTo: conformPasswordTextFeild.centerYAnchor).isActive = true
+        showOrHidePasswordButton.leadingAnchor.constraint(equalTo: conformPasswordTextFeild.trailingAnchor, constant: 5).isActive = true
+        showOrHidePasswordButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.07).isActive = true
+        showOrHidePasswordButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.05).isActive = true
     }
 
 }
@@ -75,6 +137,31 @@ extension SignupView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // endEditingメソッドでもキーボードを閉じることができる
         self.endEditing(true)
+    }
+    
+}
+
+extension SignupView {
+    
+    // showOrHidePasswordButtonがタップされたら呼ばれるメソッド
+    @objc func showOrHidePassword() {
+        
+        if passwordTextField.isSecureTextEntry && conformPasswordTextFeild.isSecureTextEntry {
+            
+            // パスワード表示&アイコン切り替え
+            showOrHidePasswordButton.setImage(UIImage(named: "eye-hidden-2"), for: .normal)
+            passwordTextField.isSecureTextEntry = false
+            conformPasswordTextFeild.isSecureTextEntry = false
+            
+        } else {
+            
+            // パスワード非表示&アイコン切り替え
+            showOrHidePasswordButton.setImage(UIImage(named: "eye-show-2"), for: .normal)
+            passwordTextField.isSecureTextEntry = true
+            conformPasswordTextFeild.isSecureTextEntry = true
+            
+        }
+        
     }
     
 }

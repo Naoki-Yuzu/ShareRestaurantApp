@@ -12,11 +12,11 @@ import UIKit
 
 class OriginalLabel: UILabel {
     
-    init(textOfLabel: String, textColor: UIColor, fontSize: CGFloat ) {
+    init(textOfLabel: String, textColor: UIColor, fontAndSize: UIFont ) {
         super.init(frame: CGRect())
         super.text = textOfLabel
         super.textColor = textColor
-        super.font = .systemFont(ofSize: fontSize)
+        super.font = fontAndSize
     }
     
     /* 親クラスに定義されている必須イニシャライザ */

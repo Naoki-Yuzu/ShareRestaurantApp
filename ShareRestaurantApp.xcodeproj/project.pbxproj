@@ -17,6 +17,7 @@
 		B053908C23F5184600AB6BAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B053908B23F5184600AB6BAE /* GoogleService-Info.plist */; };
 		B053908E23F5208500AB6BAE /* AccessTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = B053908D23F5208500AB6BAE /* AccessTokens.swift */; };
 		B053909023F52F0000AB6BAE /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B053908F23F52F0000AB6BAE /* SignupView.swift */; };
+		B094CA1823F8E5FC00F003D1 /* OriginalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B094CA1723F8E5FC00F003D1 /* OriginalButton.swift */; };
 		B0BB2BA023F77B4100C3CD12 /* OriginalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BB2B9F23F77B4100C3CD12 /* OriginalTextField.swift */; };
 		B0E9BC3523F7DA3B005BFA9C /* OriginalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E9BC3423F7DA3B005BFA9C /* OriginalLabel.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +36,7 @@
 		B053908B23F5184600AB6BAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B053908D23F5208500AB6BAE /* AccessTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokens.swift; sourceTree = "<group>"; };
 		B053908F23F52F0000AB6BAE /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		B094CA1723F8E5FC00F003D1 /* OriginalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalButton.swift; sourceTree = "<group>"; };
 		B0BB2B9F23F77B4100C3CD12 /* OriginalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalTextField.swift; sourceTree = "<group>"; };
 		B0E9BC3423F7DA3B005BFA9C /* OriginalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalLabel.swift; sourceTree = "<group>"; };
 		D4C609FBA3FF06F3003BD026 /* Pods_ShareRestaurantApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareRestaurantApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,7 @@
 				B053908B23F5184600AB6BAE /* GoogleService-Info.plist */,
 				B053908D23F5208500AB6BAE /* AccessTokens.swift */,
 				B0E9BC3423F7DA3B005BFA9C /* OriginalLabel.swift */,
+				B094CA1723F8E5FC00F003D1 /* OriginalButton.swift */,
 			);
 			path = ShareRestaurantApp;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B094CA1823F8E5FC00F003D1 /* OriginalButton.swift in Sources */,
 				B053907C23F5174900AB6BAE /* ViewController.swift in Sources */,
 				B053907823F5174900AB6BAE /* AppDelegate.swift in Sources */,
 				B053907A23F5174900AB6BAE /* SceneDelegate.swift in Sources */,
