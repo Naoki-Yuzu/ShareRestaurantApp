@@ -18,15 +18,25 @@ class OriginalButton: UIButton {
     }
     */
     
-    init(title: String, titleColor: UIColor, fontAndSize: UIFont) {
+    // 影あり
+    init(title: String, titleColor: UIColor, fontAndSize: UIFont, backgroundColor: UIColor) {
         super.init(frame: CGRect())
         super.setTitle(title, for: .normal)
         super.setTitleColor(titleColor, for: .normal)
-        super.backgroundColor = UIColor(red: 0/255, green: 128/255, blue: 128/255, alpha: 1)
+        super.backgroundColor = backgroundColor
         super.layer.cornerRadius = 10
         super.layer.shadowOpacity = 0.5
         super.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
         super.titleLabel?.font = fontAndSize
+    }
+    
+    // 影なし
+    init(title: String, titleColor: UIColor, fontAndSize: UIFont) {
+        super.init(frame: CGRect())
+        super.setTitle(title, for: .normal)
+        super.setTitleColor(titleColor, for: .normal)
+        super.titleLabel?.font = fontAndSize
+        
     }
     
     // アイコンを使う時用のイニシャライザ

@@ -1,5 +1,5 @@
 //
-//  SignupView.swift
+//  SignUpView.swift
 //  ShareRestaurantApp
 //
 //  Created by デュフフくん on 2020/02/13.
@@ -8,8 +8,15 @@
 
 import UIKit
 
-class SignupView: UIView {
+protocol SignUpViewDelegate {
+    func togglelogInView()
     
+    func showAlert(title: String, message: String)
+}
+
+class SignUpView: UIView {
+    
+    // MARK: - Properties
     var titleLabel: UILabel!
     var emailLabel: UILabel!
     var emailTextFeild: UITextField!
@@ -18,13 +25,18 @@ class SignupView: UIView {
     var conformPasswordTextFeild: UITextField!
     var registerButton: UIButton!
     var showOrHidePasswordButton: UIButton!
+    var promptTologInLabel: UILabel!
+    var toggleLoginViewButton: UIButton!
     
+    var delegate: SignUpViewDelegate?
+    
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.backgroundColor = .white
         
-        titleLabel = OriginalLabel(textOfLabel: "会員登録", textColor: .black, fontAndSize: UIFont.boldSystemFont(ofSize: 20))
+        titleLabel = OriginalLabel(textOfLabel: "新規登録", textColor: .black, fontAndSize: UIFont.boldSystemFont(ofSize: 20))
         titleLabel.textAlignment = .center
         
         emailLabel = OriginalLabel(textOfLabel: "メールアドレス", textColor: .black, fontAndSize: UIFont.boldSystemFont(ofSize: 10))
@@ -35,7 +47,7 @@ class SignupView: UIView {
         
         passwordLabel = OriginalLabel(textOfLabel: "パスワード", textColor: .black, fontAndSize: UIFont.boldSystemFont(ofSize: 10))
         
-        passwordTextField = OriginalTextField(placeholderText: "Password", textColor: .black)
+        passwordTextField = OriginalTextField(placeholderText: "半角英数字6文字以上", textColor: .black)
         passwordTextField.delegate = self
         passwordTextField.isSecureTextEntry = true
         passwordTextField.addLine(position: .LINE_POSITION_BOTTOM, color: .black, width: 1)
@@ -45,10 +57,16 @@ class SignupView: UIView {
         conformPasswordTextFeild.isSecureTextEntry = true
         conformPasswordTextFeild.addLine(position: .LINE_POSITION_BOTTOM, color: .black, width: 1)
         
-        registerButton = OriginalButton(title: "登録", titleColor: .white, fontAndSize: UIFont.systemFont(ofSize: 15))
+        registerButton = OriginalButton(title: "登録", titleColor: .white, fontAndSize: UIFont.systemFont(ofSize: 15), backgroundColor: UIColor(red: 0/255, green: 128/255, blue: 128/255, alpha: 1))
+        registerButton.addTarget(self, action: #selector(signUpUser), for: .touchUpInside)
         
         showOrHidePasswordButton = OriginalButton(image: UIImage(named: "eye-show-2")!)
         showOrHidePasswordButton.addTarget(self, action: #selector(showOrHidePassword), for: .touchUpInside)
+        
+        promptTologInLabel = OriginalLabel(textOfLabel: "既にアカウントを持っている方", textColor: .black, fontAndSize: UIFont.systemFont(ofSize: 11))
+        
+        toggleLoginViewButton = OriginalButton(title: "ログイン", titleColor: UIColor(red: 65/255, green: 105/255, blue: 225/255, alpha: 1), fontAndSize: .boldSystemFont(ofSize: 11))
+        toggleLoginViewButton.addTarget(self, action: #selector(toggleLogInView), for: .touchUpInside)
         
         // SignupViewのsubviewとして追加
         self.addSubview(titleLabel)
@@ -59,6 +77,8 @@ class SignupView: UIView {
         self.addSubview(conformPasswordTextFeild)
         self.addSubview(registerButton)
         self.addSubview(showOrHidePasswordButton)
+        self.addSubview(promptTologInLabel)
+        self.addSubview(toggleLoginViewButton)
     }
     
     required init?(coder: NSCoder) {
@@ -78,6 +98,8 @@ class SignupView: UIView {
         conformPasswordTextFeild.translatesAutoresizingMaskIntoConstraints = false
         registerButton.translatesAutoresizingMaskIntoConstraints = false
         showOrHidePasswordButton.translatesAutoresizingMaskIntoConstraints = false
+        promptTologInLabel.translatesAutoresizingMaskIntoConstraints = false
+        toggleLoginViewButton.translatesAutoresizingMaskIntoConstraints = false
         
         titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 15).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
@@ -118,11 +140,22 @@ class SignupView: UIView {
         showOrHidePasswordButton.leadingAnchor.constraint(equalTo: conformPasswordTextFeild.trailingAnchor, constant: 5).isActive = true
         showOrHidePasswordButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.07).isActive = true
         showOrHidePasswordButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.05).isActive = true
+        
+        promptTologInLabel.centerYAnchor.constraint(equalTo: self.bottomAnchor, constant: -30).isActive = true
+        promptTologInLabel.trailingAnchor.constraint(equalTo: toggleLoginViewButton.leadingAnchor, constant: -10).isActive = true
+        promptTologInLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.4).isActive = true
+        promptTologInLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.02).isActive = true
+        
+        toggleLoginViewButton.centerYAnchor.constraint(equalTo: self.bottomAnchor, constant: -30).isActive = true
+        toggleLoginViewButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -60).isActive = true
+        toggleLoginViewButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.2).isActive = true
+        toggleLoginViewButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.03).isActive = true
     }
 
 }
 
-extension SignupView: UITextFieldDelegate {
+// MARK: - Delegate
+extension SignUpView: UITextFieldDelegate {
     
     // リターンキーがタップされたらキーボードを閉じる
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -131,7 +164,7 @@ extension SignupView: UITextFieldDelegate {
     
 }
 
-extension SignupView {
+extension SignUpView {
     
     // textField以外をタップしたらキーボードを閉じる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -141,7 +174,18 @@ extension SignupView {
     
 }
 
-extension SignupView {
+// MARK: - Selectors
+extension SignUpView {
+    
+    @objc func signUpUser() {
+        
+        if enteredEmail() && conformSamePassword() {
+            
+            print("success")
+            
+        }
+        
+    }
     
     // showOrHidePasswordButtonがタップされたら呼ばれるメソッド
     @objc func showOrHidePassword() {
@@ -161,6 +205,56 @@ extension SignupView {
             conformPasswordTextFeild.isSecureTextEntry = true
             
         }
+        
+    }
+    
+    // toggleLoginViewButtonがタップされたら呼ばれるメソッド
+    @objc func toggleLogInView() {
+        
+        delegate?.togglelogInView()
+        
+    }
+    
+}
+
+// MARK: - Methods
+extension SignUpView {
+    
+    func conformSamePassword() -> Bool{
+        
+        // パスワードがnilではないか確認
+        if passwordTextField.text == nil || conformPasswordTextFeild.text == nil {
+            return false
+        }
+        
+        // パスワードが空ではないか確認
+        if passwordTextField.text == "" || conformPasswordTextFeild.text == "" {
+            return false
+        }
+        
+        // パスワードが異なっていないか確認
+        if passwordTextField.text != conformPasswordTextFeild.text {
+            delegate?.showAlert(title: "メッセージ", message: "パスワードが一致していません")
+            return false
+        }
+        
+        return true
+        
+    }
+    
+    func enteredEmail() -> Bool {
+        
+        // emailがnilではないか確認
+        if emailTextFeild.text == nil {
+            return false
+        }
+        
+        // emailが空ではないか確認
+        if emailTextFeild.text == "" {
+            return false
+        }
+        
+        return true
         
     }
     

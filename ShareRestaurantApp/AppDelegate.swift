@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             window = UIWindow(frame: UIScreen.main.bounds)
             
-//            let navigationController = UINavigationController(rootViewController: ViewController())
-            window?.rootViewController = ViewController()
+            let navigationController = UINavigationController(rootViewController: SignUpController())
+            window?.rootViewController = navigationController
             window?.makeKeyAndVisible()
             
         }
