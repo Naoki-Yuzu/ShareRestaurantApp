@@ -7,22 +7,18 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
 
-class MapView: UIView {
+class MapView: MKMapView {
     
-//    var delegate: SideMenuControllerDelegate?
-    
-    var menuButton: UIButton!
+    var mapView: MKMapView!
     
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame: CGRect())
+        print("init")
         
-//        delegate = self as? SideMenuControllerDelegate
-        self.backgroundColor = .blue
-//        menuButton = OriginalButton(image: UIImage(named: "menu_icon")!)
-//        menuButton.addTarget(self, action: #selector(handleMenuToggle), for: .touchUpInside)
-        
-//        self.addSubview(menuButton)
+        configureSubView()
     }
     
     required init?(coder: NSCoder) {
@@ -31,34 +27,28 @@ class MapView: UIView {
     
     override func updateConstraints() {
         super.updateConstraints()
+        print("auto layout..")
         
-//        print("good morinig")
-//        menuButton.translatesAutoresizingMaskIntoConstraints = false
-//        
-//        menuButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 100).isActive = true
-//        menuButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -100).isActive = true
-//        menuButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5).isActive = true
-//        menuButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.5).isActive = true
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        
+        mapView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        mapView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        mapView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        mapView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        
+    }
+    
+    func configureSubView() {
+        
+        mapView = MKMapView(frame: self.bounds)
+        self.addSubview(mapView)
+        
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-//        menuButton.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        
     }
-    
-//    @objc func handleMenuToggle() {
-//
-//        delegate?.handelMenuToggle()
-//
-//    }
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }

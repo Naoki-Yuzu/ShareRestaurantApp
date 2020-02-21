@@ -9,7 +9,6 @@
 import UIKit
 
 // テキストフィールドを使い回すためのクラス
-
 class OriginalTextField: UITextField {
     
     /* キーボードタイプを指定しない場合 */

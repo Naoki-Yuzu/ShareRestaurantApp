@@ -11,6 +11,7 @@
 		B0162C4323FB7A62007BB06F /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0162C4223FB7A62007BB06F /* LogInController.swift */; };
 		B0162C4523FB7A79007BB06F /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0162C4423FB7A79007BB06F /* LogInView.swift */; };
 		B0162C4723FBA6ED007BB06F /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0162C4623FBA6ED007BB06F /* MyPageView.swift */; };
+		B0162C4B23FBD8B4007BB06F /* SignUpUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0162C4A23FBD8B4007BB06F /* SignUpUser.swift */; };
 		B053907823F5174900AB6BAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B053907723F5174900AB6BAE /* AppDelegate.swift */; };
 		B053907A23F5174900AB6BAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B053907923F5174900AB6BAE /* SceneDelegate.swift */; };
 		B053907C23F5174900AB6BAE /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B053907B23F5174900AB6BAE /* SignUpController.swift */; };
@@ -27,6 +28,10 @@
 		B094CA1823F8E5FC00F003D1 /* OriginalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B094CA1723F8E5FC00F003D1 /* OriginalButton.swift */; };
 		B0BB2BA023F77B4100C3CD12 /* OriginalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BB2B9F23F77B4100C3CD12 /* OriginalTextField.swift */; };
 		B0E9BC3523F7DA3B005BFA9C /* OriginalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E9BC3423F7DA3B005BFA9C /* OriginalLabel.swift */; };
+		B0F5B87A23FCE1A8002DB381 /* LogInUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F5B87923FCE1A8002DB381 /* LogInUser.swift */; };
+		B0F5B87C23FCFCCD002DB381 /* SignOutUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F5B87B23FCFCCD002DB381 /* SignOutUser.swift */; };
+		B0F5B87E23FD0309002DB381 /* ConfirmEmailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F5B87D23FD0309002DB381 /* ConfirmEmailController.swift */; };
+		B0F5B88023FD0B78002DB381 /* ConfirmEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F5B87F23FD0B78002DB381 /* ConfirmEmailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +40,7 @@
 		B0162C4223FB7A62007BB06F /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
 		B0162C4423FB7A79007BB06F /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		B0162C4623FBA6ED007BB06F /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		B0162C4A23FBD8B4007BB06F /* SignUpUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUser.swift; sourceTree = "<group>"; };
 		B053907423F5174900AB6BAE /* ShareRestaurantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareRestaurantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B053907723F5174900AB6BAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B053907923F5174900AB6BAE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +59,10 @@
 		B094CA1723F8E5FC00F003D1 /* OriginalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalButton.swift; sourceTree = "<group>"; };
 		B0BB2B9F23F77B4100C3CD12 /* OriginalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalTextField.swift; sourceTree = "<group>"; };
 		B0E9BC3423F7DA3B005BFA9C /* OriginalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalLabel.swift; sourceTree = "<group>"; };
+		B0F5B87923FCE1A8002DB381 /* LogInUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInUser.swift; sourceTree = "<group>"; };
+		B0F5B87B23FCFCCD002DB381 /* SignOutUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutUser.swift; sourceTree = "<group>"; };
+		B0F5B87D23FD0309002DB381 /* ConfirmEmailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmEmailController.swift; sourceTree = "<group>"; };
+		B0F5B87F23FD0B78002DB381 /* ConfirmEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmEmailView.swift; sourceTree = "<group>"; };
 		D4C609FBA3FF06F3003BD026 /* Pods_ShareRestaurantApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareRestaurantApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -124,6 +134,9 @@
 		B053909123F52F0600AB6BAE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B0162C4A23FBD8B4007BB06F /* SignUpUser.swift */,
+				B0F5B87B23FCFCCD002DB381 /* SignOutUser.swift */,
+				B0F5B87923FCE1A8002DB381 /* LogInUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,6 +146,7 @@
 			children = (
 				B053908F23F52F0000AB6BAE /* SignUpView.swift */,
 				B0162C4423FB7A79007BB06F /* LogInView.swift */,
+				B0F5B87F23FD0B78002DB381 /* ConfirmEmailView.swift */,
 				B056702823FA296B0027A7E1 /* MapView.swift */,
 				B0162C4623FBA6ED007BB06F /* MyPageView.swift */,
 				B0E9BC3423F7DA3B005BFA9C /* OriginalLabel.swift */,
@@ -147,6 +161,7 @@
 			children = (
 				B053907B23F5174900AB6BAE /* SignUpController.swift */,
 				B0162C4223FB7A62007BB06F /* LogInController.swift */,
+				B0F5B87D23FD0309002DB381 /* ConfirmEmailController.swift */,
 				B056703023FA76D60027A7E1 /* MapViewController.swift */,
 				B056702A23FA32C40027A7E1 /* MyPageViewController.swift */,
 				B056702E23FA741F0027A7E1 /* CustomTabBarController.swift */,
@@ -270,6 +285,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0F5B87A23FCE1A8002DB381 /* LogInUser.swift in Sources */,
+				B0162C4B23FBD8B4007BB06F /* SignUpUser.swift in Sources */,
+				B0F5B88023FD0B78002DB381 /* ConfirmEmailView.swift in Sources */,
 				B0162C4523FB7A79007BB06F /* LogInView.swift in Sources */,
 				B094CA1823F8E5FC00F003D1 /* OriginalButton.swift in Sources */,
 				B053907C23F5174900AB6BAE /* SignUpController.swift in Sources */,
@@ -282,6 +300,8 @@
 				B056702B23FA32C40027A7E1 /* MyPageViewController.swift in Sources */,
 				B0BB2BA023F77B4100C3CD12 /* OriginalTextField.swift in Sources */,
 				B0162C4323FB7A62007BB06F /* LogInController.swift in Sources */,
+				B0F5B87C23FCFCCD002DB381 /* SignOutUser.swift in Sources */,
+				B0F5B87E23FD0309002DB381 /* ConfirmEmailController.swift in Sources */,
 				B053909023F52F0000AB6BAE /* SignUpView.swift in Sources */,
 				B056702923FA296B0027A7E1 /* MapView.swift in Sources */,
 				B0E9BC3523F7DA3B005BFA9C /* OriginalLabel.swift in Sources */,

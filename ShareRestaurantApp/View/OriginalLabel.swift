@@ -9,7 +9,6 @@
 import UIKit
 
 // ラベルを使い回すためのクラス
-
 class OriginalLabel: UILabel {
     
     init(textOfLabel: String, textColor: UIColor, fontAndSize: UIFont ) {

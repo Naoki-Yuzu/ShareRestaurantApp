@@ -25,35 +25,43 @@ class CustomTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureControllers()
-        configureTabBarItems()
+        configureControllersAndTabBarItems()
     }
     
-    func authenticateUserAndConfigureView() {
-        
-        if Auth.auth().currentUser == nil {
-            
-            
-        }
-        
-    }
+//    func authenticateUserAndConfigureView() {
+//
+//        if Auth.auth().currentUser == nil {
+//
+//            DispatchQueue.main.async {
+//                print("no user..")
+////                self.configureControllersAndTabBarItems()
+//                print("made custom view controller..")
+//                self.navigationController?.pushViewController(SignUpController(), animated: true)
+////                let signUpNavController = UINavigationController(rootViewController: SignUpController())
+////                signUpNavController.modalPresentationStyle = .fullScreen
+////                self.present(signUpNavController, animated: true, completion: nil)
+//            }
+//
+//        } else {
+//
+//            print("present user..")
+//            configureControllersAndTabBarItems()
+//
+//        }
+//
+//    }
     
-    func configureControllers() {
+    func configureControllersAndTabBarItems() {
         
         mapViewController = MapViewController()
         myPageViewController = MyPageViewController()
         self.setViewControllers([mapViewController, myPageViewController], animated: true)
-        
-    }
-    
-    func configureTabBarItems() {
-        
         mapViewController.tabBarItem = UITabBarItem(title: "Map", image: nil, tag: 0)
         myPageViewController.tabBarItem = UITabBarItem(title: "MyPage", image: nil, tag: 1)
         UITabBarItem.appearance().setTitleTextAttributes([.font: UIFont.boldSystemFont(ofSize: 13)], for: .normal)
+        navigationController?.isNavigationBarHidden = true
         
     }
-    
 
     /*
     // MARK: - Navigation

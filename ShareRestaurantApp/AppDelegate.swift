@@ -20,12 +20,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if #available(iOS 13, *) {
         } else {
-
-            window = UIWindow(frame: UIScreen.main.bounds)
             
-            let navigationController = UINavigationController(rootViewController: SignUpController())
-            window?.rootViewController = navigationController
-            window?.makeKeyAndVisible()
+            if Auth.auth().currentUser != nil {
+                
+                print("exists user..")
+                window = UIWindow(frame: UIScreen.main.bounds)
+                let customNavigationController = UINavigationController(rootViewController: CustomTabBarController())
+                window?.rootViewController = customNavigationController
+                window?.makeKeyAndVisible()
+                
+            } else {
+                
+                print("no user..")
+                window = UIWindow(frame: UIScreen.main.bounds)
+                let SignUpNavigationController = UINavigationController(rootViewController: SignUpController())
+                window?.rootViewController = SignUpNavigationController
+                window?.makeKeyAndVisible()
+                
+            }
+            
             
         }
         
