@@ -10,6 +10,8 @@ import UIKit
 
 protocol LogInViewDelegate {
     func toggleSignUpView()
+    
+    func logInUser(withEmail email: String, password: String)
 }
 
 class LogInView: UIView {
@@ -51,6 +53,7 @@ class LogInView: UIView {
         passwordTextField.addLine(position: .LINE_POSITION_BOTTOM, color: .black, width: 1)
             
         logInButton = OriginalButton(title: "ログイン", titleColor: .white, fontAndSize: UIFont.systemFont(ofSize: 15), backgroundColor: UIColor(red: 0/255, green: 128/255, blue: 128/255, alpha: 1))
+        logInButton.addTarget(self, action: #selector(logInUser), for: .touchUpInside)
         
         promptToSignUpLabel = OriginalLabel(textOfLabel: "まだアカウントを持っていない方", textColor: .black, fontAndSize: UIFont.systemFont(ofSize: 11))
             
@@ -156,6 +159,12 @@ extension LogInView {
     @objc func toggleLogInView() {
         
         delegate?.toggleSignUpView()
+        
+    }
+    
+    @objc func logInUser() {
+        
+        delegate?.logInUser(withEmail: emailTextFeild.text!, password: passwordTextField.text!)
         
     }
     

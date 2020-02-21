@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,11 +20,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = (scene as? UIWindowScene) else { return }
         
-        window = UIWindow(windowScene: scene)
+        if Auth.auth().currentUser != nil {
+            
+            print("exists user..")
+            window = UIWindow(windowScene: scene)
+            let customNavigationController = UINavigationController(rootViewController: CustomTabBarController())
+            window?.rootViewController = customNavigationController
+            window?.makeKeyAndVisible()
+            
+        } else {
+            
+            print("no user..")
+            window = UIWindow(windowScene: scene)
+            let SignUpNavigationController = UINavigationController(rootViewController: SignUpController())
+            window?.rootViewController = SignUpNavigationController
+            window?.makeKeyAndVisible()
+            
+        }
         
-        let navigationController = UINavigationController(rootViewController: SignUpController())
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
+//        window = UIWindow(windowScene: scene)
+//
+//        let navigationController = UINavigationController(rootViewController: CustomTabBarController())
+//        window?.rootViewController = navigationController
+//        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -9,9 +9,13 @@
 import UIKit
 
 protocol SignUpViewDelegate {
+    
     func togglelogInView()
     
     func showAlert(title: String, message: String)
+    
+    func signUpUser(withEmail email: String, password: String)
+    
 }
 
 class SignUpView: UIView {
@@ -20,6 +24,7 @@ class SignUpView: UIView {
     var titleLabel: UILabel!
     var emailLabel: UILabel!
     var emailTextFeild: UITextField!
+    var promptAttentionLabel: UILabel!
     var passwordLabel: UILabel!
     var passwordTextField: UITextField!
     var conformPasswordTextFeild: UITextField!
@@ -44,6 +49,8 @@ class SignUpView: UIView {
         emailTextFeild = OriginalTextField(placeholderText: "example@gmail.com", textColor: .black, keybordType: .emailAddress)
         emailTextFeild.delegate = self
         emailTextFeild.addLine(position: .LINE_POSITION_BOTTOM, color: .black, width: 1)
+        
+        promptAttentionLabel = OriginalLabel(textOfLabel: "※登録完了後、ご本人様確認用のメールが届きます。", textColor: .darkGray, fontAndSize: .systemFont(ofSize: 10))
         
         passwordLabel = OriginalLabel(textOfLabel: "パスワード", textColor: .black, fontAndSize: UIFont.boldSystemFont(ofSize: 10))
         
@@ -72,6 +79,7 @@ class SignUpView: UIView {
         self.addSubview(titleLabel)
         self.addSubview(emailLabel)
         self.addSubview(emailTextFeild)
+        self.addSubview(promptAttentionLabel)
         self.addSubview(passwordLabel)
         self.addSubview(passwordTextField)
         self.addSubview(conformPasswordTextFeild)
@@ -93,6 +101,7 @@ class SignUpView: UIView {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         emailLabel.translatesAutoresizingMaskIntoConstraints = false
         emailTextFeild.translatesAutoresizingMaskIntoConstraints = false
+        promptAttentionLabel.translatesAutoresizingMaskIntoConstraints = false
         passwordLabel.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         conformPasswordTextFeild.translatesAutoresizingMaskIntoConstraints = false
@@ -116,7 +125,12 @@ class SignUpView: UIView {
         emailTextFeild.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.7).isActive = true
         emailTextFeild.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.05).isActive = true
         
-        passwordLabel.topAnchor.constraint(equalTo: emailTextFeild.bottomAnchor, constant: 20).isActive = true
+        promptAttentionLabel.topAnchor.constraint(equalTo: emailTextFeild.bottomAnchor, constant: 5).isActive = true
+        promptAttentionLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        promptAttentionLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.7).isActive = true
+        promptAttentionLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.02).isActive = true
+        
+        passwordLabel.topAnchor.constraint(equalTo: promptAttentionLabel.bottomAnchor, constant: 20).isActive = true
         passwordLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         passwordLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.7).isActive = true
         passwordLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.02).isActive = true
@@ -181,7 +195,8 @@ extension SignUpView {
         
         if enteredEmail() && conformSamePassword() {
             
-            print("success")
+            print("entered email and password")
+            delegate?.signUpUser(withEmail: emailTextFeild.text!, password: passwordTextField.text!)
             
         }
         

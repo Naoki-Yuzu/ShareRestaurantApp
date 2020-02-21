@@ -11,14 +11,13 @@ import Firebase
 
 class SignUpController: UIViewController {
     
-//    var sideMenuController: UIViewController!
-//    var isExpanded = false
-    
-    var signUpView = SignUpView()
+    let signUpView = SignUpView()
+    let signUpUserModel = SignUpUser()
 //    var mapView = MapView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("sign up controller..")
         view.backgroundColor = .white
         navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view.
@@ -34,7 +33,6 @@ class SignUpController: UIViewController {
         super.viewDidLayoutSubviews()
         
         signUpView.frame = CGRect(x: view.safeAreaInsets.left, y: view.safeAreaInsets.top, width: view.frame.size.width - view.safeAreaInsets.left - view.safeAreaInsets.right, height: view.frame.size.height - view.safeAreaInsets.bottom - view.safeAreaInsets.top)
-        
     }
     
 //    func configureSideMenuController() {
@@ -102,25 +100,27 @@ extension SignUpController: SignUpViewDelegate {
         
     }
     
+    func signUpUser(withEmail email: String, password: String) {
+        
+        print("while sign up")
+        // パターン1 use trailing closure
+        signUpUserModel.signUpUser(withEmail: email, password: password) {
+//            self.dismiss(animated: true, completion: nil)
+            self.signUpUserModel.sendEmail() {
+                
+                print("sent email..")
+                self.navigationController?.pushViewController(ConfirmEmailController(), animated: true)
+            
+            }
+            
+            
+        }
+        
+        /* パターン2 don't use trailing closure
+        signUpUserModel.signUpUser(withEmail: email, password: password, completion: {self.dismiss(animated: true, completion: nil)})
+        */
+        
+    }
+    
 }
-
-//extension ViewController: SideMenuControllerDelegate {
-//
-//    func handelMenuToggle() {
-////        print("hey")
-////        configureSideMenuController()
-//        print(isExpanded)
-//        if !isExpanded {
-//
-//            configureSideMenuController()
-//
-//        }
-//
-//        print(isExpanded)
-//        isExpanded = !isExpanded
-//
-//        showSideMenuController(shoulExpand: isExpanded)
-//    }
-//
-//}
 

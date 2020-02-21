@@ -8,6 +8,7 @@
 
 import UIKit
 
+// ボタンを使い回すためのクラス
 class OriginalButton: UIButton {
 
     /*

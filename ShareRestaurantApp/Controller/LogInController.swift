@@ -11,7 +11,8 @@ import Firebase
 
 class LogInController: UIViewController {
     
-    var logInView = LogInView()
+    let logInView = LogInView()
+    let logInUserModel = LogInUesr()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,17 +28,6 @@ class LogInController: UIViewController {
         
         logInView.frame = CGRect(x: view.safeAreaInsets.left, y: view.safeAreaInsets.top, width: view.frame.size.width - view.safeAreaInsets.left - view.safeAreaInsets.right, height: view.frame.size.height - view.safeAreaInsets.bottom - view.safeAreaInsets.top)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -45,6 +35,12 @@ extension LogInController: LogInViewDelegate {
     
     func toggleSignUpView() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func logInUser(withEmail email: String, password: String) {
+        logInUserModel.logInUser(withEmail: email, password: password) {
+            self.navigationController?.pushViewController(CustomTabBarController(), animated: true)
+        }
     }
     
 }
