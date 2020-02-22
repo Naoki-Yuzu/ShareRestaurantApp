@@ -11,6 +11,7 @@ import UIKit
 // テキストフィールドを使い回すためのクラス
 class OriginalTextField: UITextField {
     
+    // MARK: - Inits
     /* キーボードタイプを指定しない場合 */
     init(placeholderText: String, textColor: UIColor) {
         super.init(frame: CGRect())
@@ -64,15 +65,6 @@ class OriginalTextField: UITextField {
 //        
 //        
 //    }
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 //}
 
 //    var textB: String {

@@ -11,9 +11,11 @@ import Firebase
 
 class LogInController: UIViewController {
     
+    // MARK: - Properties
     let logInView = LogInView()
     let logInUserModel = LogInUesr()
 
+    // MARK: - Helper Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +33,7 @@ class LogInController: UIViewController {
 
 }
 
+// MARK: - Delegate
 extension LogInController: LogInViewDelegate {
     
     func toggleSignUpView() {

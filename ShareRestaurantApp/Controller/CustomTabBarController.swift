@@ -14,15 +14,8 @@ class CustomTabBarController: UITabBarController {
     // MARK: - Properties
     var mapViewController: UIViewController!
     var myPageViewController: UIViewController!
-
-    // MARK: - Init
     
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
-    // MARK: - Methods
-    
+    // MARK: - Helper Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         configureControllersAndTabBarItems()
@@ -63,24 +56,4 @@ class CustomTabBarController: UITabBarController {
         
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
-
-//extension UITabBar {
-//
-//    open override func sizeThatFits(_ size: CGSize) -> CGSize {
-//        var size = super.sizeThatFits(size)
-//        size.height = 49.0
-//        return size
-//    }
-//
-//}

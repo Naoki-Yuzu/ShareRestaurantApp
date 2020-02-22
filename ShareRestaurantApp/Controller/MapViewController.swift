@@ -10,8 +10,10 @@ import UIKit
 
 class MapViewController: UIViewController {
     
+    // MARK: - Properties
     var mapView: UIView!
 
+    // MARK: - Helper Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,8 +25,8 @@ class MapViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-//        mapView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-        mapView.frame = CGRect(x: view.safeAreaInsets.left, y: view.safeAreaInsets.top, width: view.frame.size.width - view.safeAreaInsets.left - view.safeAreaInsets.right, height: view.frame.size.height - view.safeAreaInsets.bottom - view.safeAreaInsets.top)
+//        mapView.frame = CGRect(x: view.safeAreaInsets.left, y: view.safeAreaInsets.top, width: view.frame.size.width - view.safeAreaInsets.left - view.safeAreaInsets.right, height: view.frame.size.height - view.safeAreaInsets.bottom - view.safeAreaInsets.top)
+        mapView.frame = CGRect(x: view.safeAreaInsets.left, y: view.frame.origin.y, width: view.frame.size.width - view.safeAreaInsets.left - view.safeAreaInsets.right, height: view.frame.size.height)
     }
     
     func configureUIView() {

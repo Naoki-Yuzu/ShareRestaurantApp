@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Protocol
 protocol SignUpViewDelegate {
     
     func togglelogInView()
@@ -35,7 +36,7 @@ class SignUpView: UIView {
     
     var delegate: SignUpViewDelegate?
     
-    // MARK: - Init
+    // MARK: - Inits
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -93,6 +94,7 @@ class SignUpView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Helper Functions
     override func updateConstraints() {
         super.updateConstraints()
         
@@ -232,7 +234,7 @@ extension SignUpView {
     
 }
 
-// MARK: - Methods
+// MARK: - Helper Functions
 extension SignUpView {
     
     func conformSamePassword() -> Bool{
