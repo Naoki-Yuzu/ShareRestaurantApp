@@ -10,15 +10,8 @@ import UIKit
 
 // ボタンを使い回すためのクラス
 class OriginalButton: UIButton {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
     
+    // MARK: - Inits
     // 影あり
     init(title: String, titleColor: UIColor, fontAndSize: UIFont, backgroundColor: UIColor) {
         super.init(frame: CGRect())

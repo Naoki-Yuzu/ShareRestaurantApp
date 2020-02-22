@@ -11,6 +11,7 @@ import UIKit
 // ラベルを使い回すためのクラス
 class OriginalLabel: UILabel {
     
+    // MARK: - Inits
     init(textOfLabel: String, textColor: UIColor, fontAndSize: UIFont ) {
         super.init(frame: CGRect())
         super.text = textOfLabel
@@ -18,17 +19,8 @@ class OriginalLabel: UILabel {
         super.font = fontAndSize
     }
     
-    /* 親クラスに定義されている必須イニシャライザ */
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }

@@ -11,10 +11,12 @@ import Firebase
 
 class SignUpController: UIViewController {
     
+    // MARK: - Properties
     let signUpView = SignUpView()
     let signUpUserModel = SignUpUser()
 //    var mapView = MapView()
 
+    // MARK: - Helper Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         print("sign up controller..")
@@ -86,6 +88,7 @@ class SignUpController: UIViewController {
 
 }
 
+// MARK: - Delegate
 extension SignUpController: SignUpViewDelegate {
     
     func togglelogInView() {
@@ -103,9 +106,8 @@ extension SignUpController: SignUpViewDelegate {
     func signUpUser(withEmail email: String, password: String) {
         
         print("while sign up")
-        // パターン1 use trailing closure
+        // パターン1 トレイリングクロージャ使う
         signUpUserModel.signUpUser(withEmail: email, password: password) {
-//            self.dismiss(animated: true, completion: nil)
             self.signUpUserModel.sendEmail() {
                 
                 print("sent email..")
@@ -116,7 +118,7 @@ extension SignUpController: SignUpViewDelegate {
             
         }
         
-        /* パターン2 don't use trailing closure
+        /* パターン2 トレイリングクロージャ使わない
         signUpUserModel.signUpUser(withEmail: email, password: password, completion: {self.dismiss(animated: true, completion: nil)})
         */
         

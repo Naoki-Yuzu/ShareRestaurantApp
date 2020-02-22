@@ -28,7 +28,6 @@ class ConfirmEmailView: UIView {
     var delegate: ConfirmEmailViewDelegate?
     
     // MARK: - Inits
-    
     override init(frame: CGRect) {
         super.init(frame: CGRect())
         

@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Protocol
 protocol LogInViewDelegate {
     func toggleSignUpView()
     
@@ -30,7 +31,7 @@ class LogInView: UIView {
     
     var delegate: LogInViewDelegate?
     
-    // MARK: - Init
+    // MARK: - Inits
     override init(frame: CGRect) {
         super.init(frame: frame)
             
@@ -74,7 +75,8 @@ class LogInView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-        
+     
+    // MARK: - Helper Functions
     override func updateConstraints() {
         super.updateConstraints()
             

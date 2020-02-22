@@ -10,11 +10,13 @@ import UIKit
 
 class MyPageViewController: UIViewController {
     
+    // MARK: - Properties
     var signOutButton: UIButton!
     var signOutUserModel = SignOutUser()
     
 //    var mapView: MapView!
 
+    // MARK: - Helper Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 //        MapView
@@ -25,6 +27,13 @@ class MyPageViewController: UIViewController {
         view.addSubview(signOutButton)
     }
     
+    override func viewDidLayoutSubviews() {
+        
+        signOutButton.frame = CGRect(x: 50, y: 50, width: 100, height: 100)
+        
+    }
+    
+    // MARK: - Selector
     @objc func signOutUser() {
         
         print("touched button..")
@@ -36,12 +45,6 @@ class MyPageViewController: UIViewController {
             self.present(signUpNavController, animated: true, completion: nil)
             
         }
-        
-    }
-    
-    override func viewDidLayoutSubviews() {
-        
-        signOutButton.frame = CGRect(x: 50, y: 50, width: 100, height: 100)
         
     }
 
