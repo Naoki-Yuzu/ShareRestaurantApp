@@ -70,7 +70,8 @@ extension ConfirmEmailController: ConfirmEmailViewDelegate {
             
         }, completion: {
             print("completed registration..")
-            self.navigationController?.pushViewController(CustomTabBarController(), animated: true)
+//            self.navigationController?.pushViewController(CustomTabBarController(), animated: true)
+            self.navigationController?.pushViewController(ContainerController(), animated: true)
         })
     }
     

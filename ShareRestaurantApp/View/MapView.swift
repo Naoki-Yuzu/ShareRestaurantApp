@@ -47,7 +47,7 @@ class MapView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        
+        mapView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
     }
     
     private func configureMap() {
