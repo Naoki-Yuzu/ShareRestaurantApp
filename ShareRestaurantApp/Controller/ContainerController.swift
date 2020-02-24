@@ -45,7 +45,9 @@ class ContainerController: UIViewController {
     func configureSideMenuController() {
         if sideMenuController == nil {
             print("configure side menu controller..")
-            sideMenuController = SideMenuController()
+            let localSideMenuController = SideMenuController()
+            localSideMenuController.delegate = self
+            sideMenuController = localSideMenuController
             view.insertSubview(sideMenuController.view, at: 0)
             addChild(sideMenuController)
             sideMenuController.didMove(toParent: self)
@@ -56,7 +58,7 @@ class ContainerController: UIViewController {
         if shouldExpand {
             print("show menu..")
             UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
-                self.navMapViewController.view.frame.origin.x = self.navMapViewController.view.frame.width - 80
+                self.navMapViewController.view.frame.origin.x = self.navMapViewController.view.frame.width * 0.6
             }, completion: nil)
         } else {
             print("hide menu..")
@@ -66,8 +68,31 @@ class ContainerController: UIViewController {
         }
     }
     
+    func hideSideMenu(sidMenuOption: SideMenuOption) {
+        
+        print("hide menu..")
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+            self.navMapViewController.view.frame.origin.x = 0
+        }) { (_) in
+            self.didSelectSideMenuOption(sideMenuOption: sidMenuOption)
+        }
+        
+    }
+    
+    func didSelectSideMenuOption(sideMenuOption: SideMenuOption) {
+        switch sideMenuOption {
+        case .Profile:
+            print("show profile")
+        case .Signout:
+            print("sign out")
+        }
+        
+    }
+
+    
 }
 
+// MARK: - Delegate
 extension ContainerController: MapViewControllerDelegate {
     
     func showOrHideSideMenu() {
@@ -80,6 +105,15 @@ extension ContainerController: MapViewControllerDelegate {
         isExpansion = !isExpansion
         showSideMenu(shouldExpand: isExpansion)
         
+    }
+    
+}
+
+extension ContainerController: SideMenuControllerDelegate {
+    
+    func hideSideMenu(forSideMenuOption sideMenuOption: SideMenuOption) {
+        hideSideMenu(sidMenuOption: sideMenuOption)
+        isExpansion = false
     }
     
 }
