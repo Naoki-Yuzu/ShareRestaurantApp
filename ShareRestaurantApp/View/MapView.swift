@@ -9,10 +9,16 @@
 import UIKit
 import GoogleMaps
 
+protocol MapViewDelegate {
+    func showOrHideSideMenu()
+}
+
 class MapView: UIView {
     
     // MARK: - Properties
+    var sideMenuButton: UIButton!
     var mapView: GMSMapView!
+    var delegate: MapViewDelegate?
     var locationManager: CLLocationManager!
     let defaultLocation = CLLocation(latitude: 35.6809591, longitude: 139.7673068) // 東京駅
     
@@ -48,6 +54,7 @@ class MapView: UIView {
         super.layoutSubviews()
         
         mapView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
+        sideMenuButton.frame = CGRect(x: self.bounds.origin.x + 50, y: self.bounds.origin.y + 50, width: 40, height: 40)
     }
     
     private func configureMap() {
@@ -61,6 +68,7 @@ class MapView: UIView {
         mapView.isHidden = true
         
         getUserLocation()
+        configureSideMenuButton()
     }
     
     private func getUserLocation() {
@@ -72,6 +80,24 @@ class MapView: UIView {
         locationManager.delegate = self
         // CLLocationManagerDelegateのdidChangeAuthorizationが起動
         
+    }
+    
+    private func configureSideMenuButton() {
+        
+        sideMenuButton = UIButton()
+        sideMenuButton.setImage(UIImage(named: "hamburger-icon"), for: .normal)
+        sideMenuButton.imageView?.contentMode = .scaleAspectFill
+        sideMenuButton.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 240/255, alpha: 0.8)
+        sideMenuButton.layer.cornerRadius = 8
+        sideMenuButton.addTarget(self, action: #selector(showOrHideSideMenu), for: .touchUpInside)
+        self.addSubview(sideMenuButton)
+        
+    }
+    
+    // MARK: - Selector
+    @objc func showOrHideSideMenu() {
+        print("tapped..")
+        delegate?.showOrHideSideMenu()
     }
 
 }

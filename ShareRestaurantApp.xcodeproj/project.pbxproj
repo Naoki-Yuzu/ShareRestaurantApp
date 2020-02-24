@@ -26,6 +26,7 @@
 		B056702F23FA741F0027A7E1 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056702E23FA741F0027A7E1 /* CustomTabBarController.swift */; };
 		B056703123FA76D60027A7E1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056703023FA76D60027A7E1 /* MapViewController.swift */; };
 		B08D97CF2402414600387AFE /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08D97CE2402414600387AFE /* ContainerController.swift */; };
+		B08D97FC2402667700387AFE /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08D97FB2402667700387AFE /* SideMenuController.swift */; };
 		B094CA1823F8E5FC00F003D1 /* OriginalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B094CA1723F8E5FC00F003D1 /* OriginalButton.swift */; };
 		B0BB2BA023F77B4100C3CD12 /* OriginalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BB2B9F23F77B4100C3CD12 /* OriginalTextField.swift */; };
 		B0E9BC3523F7DA3B005BFA9C /* OriginalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E9BC3423F7DA3B005BFA9C /* OriginalLabel.swift */; };
@@ -58,6 +59,7 @@
 		B056702E23FA741F0027A7E1 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		B056703023FA76D60027A7E1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B08D97CE2402414600387AFE /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
+		B08D97FB2402667700387AFE /* SideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
 		B094CA1723F8E5FC00F003D1 /* OriginalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalButton.swift; sourceTree = "<group>"; };
 		B0BB2B9F23F77B4100C3CD12 /* OriginalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalTextField.swift; sourceTree = "<group>"; };
 		B0E9BC3423F7DA3B005BFA9C /* OriginalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalLabel.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				B056702A23FA32C40027A7E1 /* MyPageViewController.swift */,
 				B056702E23FA741F0027A7E1 /* CustomTabBarController.swift */,
 				B08D97CE2402414600387AFE /* ContainerController.swift */,
+				B08D97FB2402667700387AFE /* SideMenuController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0F5B87A23FCE1A8002DB381 /* LogInUser.swift in Sources */,
+				B08D97FC2402667700387AFE /* SideMenuController.swift in Sources */,
 				B0162C4B23FBD8B4007BB06F /* SignUpUser.swift in Sources */,
 				B0F5B88023FD0B78002DB381 /* ConfirmEmailView.swift in Sources */,
 				B0162C4523FB7A79007BB06F /* LogInView.swift in Sources */,

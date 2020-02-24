@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol MapViewControllerDelegate {
+    func showOrHideSideMenu()
+}
+
 class MapViewController: UIViewController {
     
     // MARK: - Properties
     var mapView: UIView!
+    var delegate: MapViewControllerDelegate?
 
     // MARK: - Helper Functions
     override func viewDidLoad() {
@@ -32,10 +37,21 @@ class MapViewController: UIViewController {
     
     func configureMapView() {
         
-        mapView = MapView()
+        let localMapview = MapView()
+        localMapview.delegate = self
+        mapView = localMapview
         view.addSubview(mapView)
         print("called configureUIView in MapViewController..")
         
     }
 
+}
+
+extension MapViewController: MapViewDelegate {
+    
+    func showOrHideSideMenu() {
+        print("came map view controller..")
+        delegate?.showOrHideSideMenu()
+    }
+    
 }
