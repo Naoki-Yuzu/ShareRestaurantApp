@@ -32,7 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                window?.makeKeyAndVisible()
                 
                 window = UIWindow(frame: UIScreen.main.bounds)
-                window?.rootViewController = ContainerController()
+                let navContainerController = UINavigationController(rootViewController: ContainerController())
+                window?.rootViewController = navContainerController
                 window?.makeKeyAndVisible()
                 
             } else {

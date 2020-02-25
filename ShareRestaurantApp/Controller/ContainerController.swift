@@ -14,6 +14,7 @@ class ContainerController: UIViewController {
     var navMapViewController: UIViewController!
     var sideMenuController: UIViewController!
     var isExpansion = false
+    let signOutUser = SignOutUser()
     
     // MARK: - Helper Functions
     override func viewDidLoad() {
@@ -74,6 +75,7 @@ class ContainerController: UIViewController {
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
             self.navMapViewController.view.frame.origin.x = 0
         }) { (_) in
+            // 引数は使用しないのため_でok
             self.didSelectSideMenuOption(sideMenuOption: sidMenuOption)
         }
         
@@ -84,8 +86,22 @@ class ContainerController: UIViewController {
         case .Profile:
             print("show profile")
         case .Signout:
-            print("sign out")
+            SignOutAlert()
         }
+        
+    }
+    
+    func SignOutAlert() {
+        
+        let alertController = UIAlertController(title: "メッセージ", message: "本当にログアウトしてもよろしいですか？", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "ok", style: .default, handler: {(_) in
+            self.signOutUser.signOutUser {
+                self.navigationController?.pushViewController(SignUpController(), animated: true)
+            }
+        }))
+        alertController.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+
         
     }
 

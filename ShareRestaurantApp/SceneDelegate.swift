@@ -28,8 +28,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            window?.makeKeyAndVisible()
             
             window = UIWindow(windowScene: scene)
+            let navContainerController = UINavigationController(rootViewController: ContainerController())
+            window?.rootViewController = navContainerController
             window?.makeKeyAndVisible()
-            window?.rootViewController = ContainerController()
             
             
         } else {
