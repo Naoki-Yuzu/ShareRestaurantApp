@@ -16,8 +16,8 @@ class ProfileViewController: UIViewController {
     let userProfile = UserProfile()
     
     // MARK: - Init
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func loadView() {
+        super.loadView()
         
         configureNavAndView()
     }
@@ -42,6 +42,7 @@ class ProfileViewController: UIViewController {
         profileView = ProfileView()
         view.addSubview(profileView)
         configureImageTapGesture() // 50行目
+        getUserInfo()
         
     }
     
@@ -65,11 +66,32 @@ class ProfileViewController: UIViewController {
         
     }
     
+    func getUserInfo() {
+        
+        print("get user information..")
+        userProfile.getUserInfo { (document) in
+            guard let userInfo = document.data() else { return }
+            self.profileView.userNameTextFeild.text = userInfo["userName"] as? String ?? "名無しさん"
+            guard let userImage = userInfo["userImage"] as? String else { return }
+            let url = URL(string: userImage)
+            do {
+                let data = try Data(contentsOf: url!)
+                self.profileView.userImage.image = UIImage(data: data)
+                print("did set user image from database..")
+            } catch _ {
+                print("error..")
+            }
+            
+        }
+        
+    }
+    
     // MARK: - Selectors
     @objc func dismissView() {
         dismiss(animated: true, completion: nil)
     }
     
+    // ユーザーの名前とアイコン画像を変更しFirebaseに保存するメソッド
     @objc func registerUserInfo() {
         
         print("did tap..")
@@ -82,7 +104,6 @@ class ProfileViewController: UIViewController {
             
         } else {
             print("Ok")
-//            userProfile.uploadUserProfileImage(withUIImage: profileView.userImage.image!)
             userProfile.uploadUserProfileImage(withUIImage: profileView.userImage.image!) {
                 // ここから cloud firestore に保存する
                 guard let url = self.userProfile.stringOfURL else {
@@ -93,14 +114,6 @@ class ProfileViewController: UIViewController {
                 self.userProfile.registerUserInfo(withUserName: self.profileView.userNameTextFeild.text!, userImage: url)
             }
             
-            // ここから cloud firestore に保存する
-//            guard let url = userProfile.stringOfURL else {
-//                print("can't unwrap..")
-//                return }
-//
-//            print("did unwrap..")
-//            userProfile.registerUserInfo(withUserName: profileView.userNameTextFeild.text!, userImage: url)
-            
         }
         
     }
@@ -108,7 +121,7 @@ class ProfileViewController: UIViewController {
     @objc func openPhotoLibrary() {
         
         print("image view was tapped..")
-        configureImagePicker() // 59行目
+        configureImagePicker() // 64行目
         
     }
     
