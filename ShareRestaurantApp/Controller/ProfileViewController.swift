@@ -112,6 +112,7 @@ class ProfileViewController: UIViewController {
                 
                 print("did unwrap..")
                 self.userProfile.registerUserInfo(withUserName: self.profileView.userNameTextFeild.text!, userImage: url)
+                self.dismiss(animated: true, completion: nil)
             }
             
         }
