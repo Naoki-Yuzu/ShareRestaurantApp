@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController {
     // MARK: - Properties
     var profileView: ProfileView!
     var imageViewTapGesture: UITapGestureRecognizer!
+    let userProfile = UserProfile()
     
     // MARK: - Init
     override func viewDidLoad() {
@@ -81,6 +82,25 @@ class ProfileViewController: UIViewController {
             
         } else {
             print("Ok")
+//            userProfile.uploadUserProfileImage(withUIImage: profileView.userImage.image!)
+            userProfile.uploadUserProfileImage(withUIImage: profileView.userImage.image!) {
+                // ここから cloud firestore に保存する
+                guard let url = self.userProfile.stringOfURL else {
+                    print("can't unwrap..")
+                    return }
+                
+                print("did unwrap..")
+                self.userProfile.registerUserInfo(withUserName: self.profileView.userNameTextFeild.text!, userImage: url)
+            }
+            
+            // ここから cloud firestore に保存する
+//            guard let url = userProfile.stringOfURL else {
+//                print("can't unwrap..")
+//                return }
+//
+//            print("did unwrap..")
+//            userProfile.registerUserInfo(withUserName: profileView.userNameTextFeild.text!, userImage: url)
+            
         }
         
     }

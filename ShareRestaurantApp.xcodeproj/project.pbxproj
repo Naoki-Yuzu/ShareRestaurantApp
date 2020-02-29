@@ -12,6 +12,7 @@
 		B0162C4523FB7A79007BB06F /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0162C4423FB7A79007BB06F /* LogInView.swift */; };
 		B0162C4723FBA6ED007BB06F /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0162C4623FBA6ED007BB06F /* MyPageView.swift */; };
 		B0162C4B23FBD8B4007BB06F /* SignUpUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0162C4A23FBD8B4007BB06F /* SignUpUser.swift */; };
+		B04803702407BADE0003DE5E /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048036F2407BADE0003DE5E /* UserProfile.swift */; };
 		B053907823F5174900AB6BAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B053907723F5174900AB6BAE /* AppDelegate.swift */; };
 		B053907A23F5174900AB6BAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B053907923F5174900AB6BAE /* SceneDelegate.swift */; };
 		B053907C23F5174900AB6BAE /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B053907B23F5174900AB6BAE /* SignUpController.swift */; };
@@ -49,6 +50,7 @@
 		B0162C4423FB7A79007BB06F /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		B0162C4623FBA6ED007BB06F /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		B0162C4A23FBD8B4007BB06F /* SignUpUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUser.swift; sourceTree = "<group>"; };
+		B048036F2407BADE0003DE5E /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		B053907423F5174900AB6BAE /* ShareRestaurantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareRestaurantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B053907723F5174900AB6BAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B053907923F5174900AB6BAE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				B0162C4A23FBD8B4007BB06F /* SignUpUser.swift */,
 				B0F5B87B23FCFCCD002DB381 /* SignOutUser.swift */,
 				B0F5B87923FCE1A8002DB381 /* LogInUser.swift */,
+				B048036F2407BADE0003DE5E /* UserProfile.swift */,
 				B05AF8422403A286001FFAAA /* SideMenuOpiton.swift */,
 			);
 			path = Model;
@@ -341,6 +344,7 @@
 				B08D97FC2402667700387AFE /* SideMenuController.swift in Sources */,
 				B0162C4B23FBD8B4007BB06F /* SignUpUser.swift in Sources */,
 				B0F5B88023FD0B78002DB381 /* ConfirmEmailView.swift in Sources */,
+				B04803702407BADE0003DE5E /* UserProfile.swift in Sources */,
 				B0162C4523FB7A79007BB06F /* LogInView.swift in Sources */,
 				B094CA1823F8E5FC00F003D1 /* OriginalButton.swift in Sources */,
 				B053907C23F5174900AB6BAE /* SignUpController.swift in Sources */,
