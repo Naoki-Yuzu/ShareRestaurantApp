@@ -9,6 +9,8 @@ target 'ShareRestaurantApp' do
    pod 'Firebase/Analytics'
    pod 'Firebase/Auth'
    pod 'Firebase/Firestore'
+   pod 'Firebase/Core'
+   pod 'FirebaseFirestoreSwift'
    pod 'Firebase/Storage'
    pod 'GoogleMaps'
 

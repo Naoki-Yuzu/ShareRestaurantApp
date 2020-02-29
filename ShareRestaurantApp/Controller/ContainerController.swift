@@ -84,7 +84,9 @@ class ContainerController: UIViewController {
     func didSelectSideMenuOption(sideMenuOption: SideMenuOption) {
         switch sideMenuOption {
         case .Profile:
-            print("show profile")
+            let navProfileViewController = UINavigationController(rootViewController: ProfileViewController())
+            navProfileViewController.modalPresentationStyle = .fullScreen
+            present(navProfileViewController, animated: true, completion: nil)
         case .Signout:
             SignOutAlert()
         }

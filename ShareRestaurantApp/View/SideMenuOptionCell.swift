@@ -13,7 +13,6 @@ let reuseIdentifiler: String = "SideMenuOptionCell"
 class SideMenuOptionCell: UITableViewCell {
     
     // MARK: - Properties
-    
     let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -29,7 +28,6 @@ class SideMenuOptionCell: UITableViewCell {
     }()
     
     // MARK: - Init
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .lightGray
